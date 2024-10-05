@@ -9,7 +9,6 @@ int main(int argc, char *argv[]) {
     }
 
     char *file_name = argv[1];
-    printf("Received file name: %s\n", file_name);
 
     FILE *file = fopen(file_name, "w");
 
