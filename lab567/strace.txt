@@ -1,0 +1,11 @@
+Commands:
+1. create (id)
+2. exec (id) (name, value)
+3. kill (id)
+4. ping (id)
+5. heartbeat (ping_time)
+6. exit
+
+Ok:360464
+Node 10 is available.
+Ok:10
