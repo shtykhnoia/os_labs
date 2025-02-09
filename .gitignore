@@ -1,2 +1,7 @@
 .vscode
+<<<<<<< HEAD
 */build
+=======
+*/build
+bin
+>>>>>>> refs/remotes/origin/main
