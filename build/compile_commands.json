@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/shtykhnoia/university/os_labs/build",
+  "command": "/usr/bin/c89-gcc   -g -std=c11 -o CMakeFiles/child.dir/child.c.o -c /home/shtykhnoia/university/os_labs/lab1/child.c",
+  "file": "/home/shtykhnoia/university/os_labs/lab1/child.c",
+  "output": "CMakeFiles/child.dir/child.c.o"
+},
+{
+  "directory": "/home/shtykhnoia/university/os_labs/build",
+  "command": "/usr/bin/c89-gcc   -g -std=c11 -o CMakeFiles/parent.dir/parent.c.o -c /home/shtykhnoia/university/os_labs/lab1/parent.c",
+  "file": "/home/shtykhnoia/university/os_labs/lab1/parent.c",
+  "output": "CMakeFiles/parent.dir/parent.c.o"
+}
+]

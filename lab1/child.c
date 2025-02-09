@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
-#include "stdio.h"
+#include <stdio.h>
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
@@ -20,12 +20,7 @@ int main(int argc, char *argv[]) {
     double numbers[256];
     char input[256];
 
-    while (strcmp(input, "\n") != 0) {
-        if (fgets(input, sizeof(input), stdin) == NULL) {
-            perror("Reading from pipe failed");
-            break;
-        }
-
+    while (fgets(input, sizeof(input), stdin) != NULL) {
         int count = 0;
         char *token = strtok(input, " ");
         while (token != NULL) {
@@ -50,8 +45,9 @@ int main(int argc, char *argv[]) {
         }
 
         fprintf(file, "Result of division: %.2f\n", result);
-        fclose(file);
         break;
     }
+    fclose(file);
+
     return 0;
 }

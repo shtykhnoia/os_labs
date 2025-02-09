@@ -1,0 +1,4 @@
+/home/shtykhnoia/university/os_labs/build/CMakeFiles/child.dir
+/home/shtykhnoia/university/os_labs/build/CMakeFiles/parent.dir
+/home/shtykhnoia/university/os_labs/build/CMakeFiles/edit_cache.dir
+/home/shtykhnoia/university/os_labs/build/CMakeFiles/rebuild_cache.dir

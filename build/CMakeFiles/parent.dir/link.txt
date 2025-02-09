@@ -1,0 +1,1 @@
+/usr/bin/c89-gcc -g CMakeFiles/parent.dir/parent.c.o -o parent 
