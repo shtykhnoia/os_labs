@@ -2,32 +2,32 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -g
 
-# Список исходных файлов проекта
-SRCS = main.c mem_common.c fl_allocator.c buddy_allocator.c buddy_block.c
-TEST_SRCS = test_allocators.c
+# Список исходных файлов для основного приложения и тестов
+MAIN_SRCS = main.c mem_common.c fl_allocator.c buddy_allocator.c buddy_block.c
+TEST_SRCS = test_allocators.c mem_common.c fl_allocator.c buddy_allocator.c buddy_block.c
 
 # Преобразуем имена исходных файлов в объектные файлы
-OBJS = $(SRCS:.c=.o)
+MAIN_OBJS = $(MAIN_SRCS:.c=.o)
 TEST_OBJS = $(TEST_SRCS:.c=.o)
 
-# Имя результирующего исполняемого файла
+# Имена результирующих исполняемых файлов
 TARGET = allocator
 TEST_TARGET = test_allocators
 
-# Правило по умолчанию: сборка исполняемого файла
-all: $(TARGET)
+# Цель по умолчанию собирает оба исполняемых файла
+all: $(TARGET) $(TEST_TARGET)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(TARGET): $(MAIN_OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(MAIN_OBJS)
 
-$(TEST_TARGET): $(OBJS) $(TEST_OBJS)
-	$(CC) $(CFLAGS) -o $(TEST_TARGET) $(OBJS) $(TEST_OBJS)
+$(TEST_TARGET): $(TEST_OBJS)
+	$(CC) $(CFLAGS) -o $(TEST_TARGET) $(TEST_OBJS)
 
-# Правило компиляции исходного файла в объектный файл
+# Правило компиляции для исходного файла в объектный файл
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGET) $(TEST_TARGET) $(OBJS) $(TEST_OBJS)
+	rm -f $(TARGET) $(TEST_TARGET) $(MAIN_OBJS) $(TEST_OBJS)
 
 rebuild: clean all

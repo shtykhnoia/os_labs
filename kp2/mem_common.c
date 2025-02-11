@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include "mem_common.h"
 #include <unistd.h>
 #include <sys/mman.h>

@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 
 // Вставка блока в отсортированный по адресу двусвязный список
 void bb_insert_free_block(struct buddy_block_header **free_list, struct buddy_block_header *block) {
@@ -68,19 +69,12 @@ struct buddy_block_header* bb_buddy_of(struct buddy_block_header *block, unsigne
 
 // Объединение свободного блока с его buddy, если последний также свободен
 void bb_merge_block(struct buddy_block_header **free_lists, unsigned int buddy_max_level, void *region, struct buddy_block_header *block) {
+    // Прямо проверяем buddy через флаг is_free
     while (block->level < buddy_max_level) {
         struct buddy_block_header *buddy = bb_buddy_of(block, block->level, region);
-        struct buddy_block_header *curr = free_lists[block->level];
-        bool found = false;
-        while (curr) {
-            if (curr == buddy) {
-                found = true;
-                break;
-            }
-            curr = curr->next;
-        }
-        if (!found)
+        if (!buddy->is_free)
             break;
+        // Удаляем buddy из списка свободных блоков на текущем уровне
         bb_remove_free_block(&free_lists[block->level], buddy);
         if ((uintptr_t)buddy < (uintptr_t)block)
             block = buddy;
