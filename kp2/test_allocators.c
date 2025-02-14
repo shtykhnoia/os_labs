@@ -145,8 +145,6 @@ void test_internal_fragmentation_fl() {
     printf("Средняя внутренняя фрагментация (fl_allocator): %.2f%%\n", fragmentation);
 }
 
-
-
 int main(void) {
     printf("Начало тестирования аллокаторов...\n\n");
 

@@ -1,6 +1,7 @@
 # Компилятор и флаги для компиляции
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -g
+CFLAGS += -fsanitize=address -fno-omit-frame-pointer
 
 # Список исходных файлов для основного приложения и тестов
 MAIN_SRCS = main.c mem_common.c fl_allocator.c buddy_allocator.c buddy_block.c
